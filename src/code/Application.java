@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Application {
@@ -18,7 +17,7 @@ public class Application {
             URLsAsStrings = Files.readAllLines(Paths.get("input.txt"));
         }catch (IOException exception){
             System.err.println("Error loading in from file input.txt");
-            System.err.println(exception);
+            System.err.println(exception.getMessage());
         }
         List<URLAndLinksClass> urlandLinks = new ArrayList<>();
 
@@ -41,7 +40,7 @@ public class Application {
             }catch (IOException exception){
                 System.err.println("Error with downloading URL");
                 System.err.println(urlAndLink.getUrl());
-                System.err.println(exception);
+                System.err.println(exception.getMessage());
                 System.err.println(i + "/" + urlandLinks.size());
             }
         }
@@ -75,7 +74,7 @@ public class Application {
             writer.close();
         } catch (IOException exception){
             System.err.println("There was an error writing out to file");
-            System.err.println(exception);
+            System.err.println(exception.getMessage());
         }
 
         System.out.println("All done :)");
